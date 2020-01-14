@@ -10,7 +10,7 @@ Following examples show how to use the different decoding strategies.
 It is assumed that ``_`` is the blank symbol.
 Probabilites are expected to be in natural log.
 
-### Beam Search
+### Best Path
 ```python
 logits = [] # TxV
 vocabulary = [' ', 'a', 'b', 'c', '_'] # V
