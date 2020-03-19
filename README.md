@@ -41,8 +41,14 @@ prediction = decoder.decode(logits[0])
 
 ### Beam Search with LM
 ```python
-logits = [] # TxV
-vocabulary = [' ', 'a', 'b', 'c', '_'] # V
+logits = [
+    [-1.1906, -1.0623, -1.7766, -1.7086],
+    [-1.4091, -1.4424, -1.1923, -1.5336],
+    [-1.4091, -1.6900, -1.6956, -0.9477],
+    [-1.3715, -1.2527, -1.7445, -1.2524],
+    [-1.2577, -1.2588, -1.3380, -1.7759]
+] # 5x4 TimeSteps x Softmax over Vocabulary (NATURAL LOG !!!)
+vocabulary = [' ', 'a', 'b', '_'] # 4
 alpha = 2.5 # LM Weight
 beta = 0.0 # LM Usage Reward
 word_lm_scorer = ctcdecode.WordKenLMScorer('path/to/kenlm', alpha, beta)
@@ -55,6 +61,9 @@ decoder = ctcdecode.BeamSearchDecoder(
     cutoff_top_n=40
 )
 
-predictions = decoder.decode_batch(logits)
-prediction = decoder.decode(logits[0])
+prediction = decoder.decode(logits) # text (e.g. "a b")
+
+# Batch decoding for multiple utterances
+batch = [logits, ....]
+predictions = decoder.decode_batch(batch)
 ```
