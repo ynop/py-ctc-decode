@@ -13,7 +13,7 @@ KENLM_COMMIT = '96d303cfb1a0c21b8f060dbad640d7ab301c019a'
 # Packages required in 'production'
 REQUIRED = [
     'tqdm==4.39.0',
-    'kenlm @ git+ssh://git@github.com/kpu/kenlm@{}#egg=kenlm'.format(
+    'kenlm @ git+https://git@github.com/kpu/kenlm@{}#egg=kenlm'.format(
         KENLM_COMMIT
     ),
     'numpy==1.16.2',
