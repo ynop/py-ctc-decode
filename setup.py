@@ -16,7 +16,7 @@ REQUIRED = [
     'kenlm @ git+ssh://git@github.com/kpu/kenlm@{}#egg=kenlm'.format(
         KENLM_COMMIT
     ),
-    'numpy==1.16.2',
+    'numpy==1.22.0',
     'psutil==5.6.7',
 ]
 
